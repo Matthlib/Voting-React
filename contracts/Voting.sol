@@ -81,7 +81,7 @@ function proposer(string  memory names) public {
   assert((workflowStatus ==WorkflowStatus(1)));
    require(!(workflowStatus == WorkflowStatus(2)),   "le depot n est plus possible");
    proposals.push(Proposal({name: names,voteCount: 0})  );
-   emit VoterRegistered(msg.sender); 
+   emit ProposalRegistered(names); 
             }
 			
     function  getPrp() public view  returns (Proposal[] memory names)
@@ -96,7 +96,7 @@ function proposer(string  memory names) public {
 		require(!(workflowStatus == WorkflowStatus(4)),"le vote est deja fini");
 		require(!sender.hasVoted, "a deja vote.");
  	    sender.hasVoted= true;
-        //sender.vote= votedProposalId;
+        sender.votedProposalId = votedProposalId;
 
         // Si `votedProposalId` n'est pas un index valide,
         // une erreur sera levée et l'exécution annulée
@@ -110,6 +110,12 @@ function proposer(string  memory names) public {
          return proposals[votedProposalId].voteCount;
 
     }     	
+
+
+ function getYourVote(address voterAddress) public view returns (uint votedProposalId) {
+         return voters[voterAddress].votedProposalId;
+
+    } 
 
     ///  Calcule la proposition gagnante
     /// en prenant tous les votes précédents en compte.
