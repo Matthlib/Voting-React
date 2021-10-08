@@ -112,9 +112,15 @@ class App extends Component {
     this.setState({ votingStatus: event.returnValues.newStatus});
   }
 
+
+  
   doWhenEventProposalRegistered= async (event) => {
     const { getPrp } = this.state;
-    getPrp.push(event.returnValues.name);
+    console.log(" envent proposition",event.returnValues.name);
+    console.log("event getPrp[0]", getPrp );
+  // Insert a row in the table at row index 0
+  getPrp.push({name : event.returnValues.name, voteCount : 0});
+    console.log("event getPrp[1]", getPrp );
     this.setState({ getPrp: getPrp});
   }
 
@@ -133,6 +139,8 @@ class App extends Component {
 
   sendproposer = async () => {
     const { accounts, contract } = this.state;
+    console.log("proposition",this.proposition.value );
+    console.log("accounts[0]",accounts[0] );
     const proposition = this.proposition.value;
     await contract.methods.proposer(proposition).send({ from: accounts[0] });
   }
