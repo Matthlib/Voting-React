@@ -1,0 +1,69 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+.bigblue {
+  color: DodgerBlue;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+
+.ocean {
+  height: 5%;
+  width: 400%;
+  position: absolute;
+  bottom: 502;
+  left: 0;
+  background: #015871;
+}
+
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #015871;
+  color: #015871;
+}
+.h2 {
+  color: #626869;
+  margin: 0 0 1em;
+}
+.group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+}
+.input[type="checkbox"],
+.input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.button{
+  border-radius: 50px;
+background: #ce6969;
+box-shadow: inset -20px -20px 37px #af5959,
+            inset 20px 20px 37px #ed7979;
+}
