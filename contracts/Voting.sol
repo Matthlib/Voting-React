@@ -34,6 +34,7 @@ event ProposalRegistered(string name);
 event VotingSessionStarted();
 event VotingSessionEnded();
 event Voted (address voter, uint proposalId);
+event VoteAdded (Proposal Prop);
 event VotesTallied();
 
 
@@ -114,6 +115,12 @@ function proposer(string  memory names) public {
 
  function getYourVote(address voterAddress) public view returns (uint votedProposalId) {
          return voters[voterAddress].votedProposalId;
+
+    } 
+
+
+ function gethasVoted(address voterAddress) public view returns (bool hasVoted) {
+         return voters[voterAddress].hasVoted;
 
     } 
 
